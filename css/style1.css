@@ -1,0 +1,801 @@
+
+/*Обнуление*/
+*,
+*::before,
+*::after {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+a {
+	text-decoration: none;
+}
+ul,
+ol,
+li {
+	list-style: none;
+}
+img {
+	vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: inherit;
+	font-size: inherit;
+}
+html,
+body {
+	height: 100%;
+	line-height: 1;
+	font-size: 16px;
+	color: #000;
+}
+body {
+   font-family: "PT Sans";
+}
+
+/*Для оболочки и футера +для скролла */
+.wrapper {
+	min-height: 100%;
+	overflow: hidden;
+}
+[class*="__container"] {
+	max-width: 880px; /* padding не входит в ширину тк box-sizing: content-box */
+	margin: 0px auto;
+	padding: 0px 15px; /* Чтобы не было прилипания к контенту */
+	box-sizing: content-box; /* Чтобы не прибавлять 30px k max-widxt - padding  не будет входить в размер 1046px */
+}
+
+/*=== header ============================*/
+.header__container {
+   position: relative;
+
+}
+header {
+   padding: 29px 0px 33px 0px;
+   
+}
+.header-top {
+   display: flex;
+   position: relative;
+   justify-content: space-between;
+}
+.header-top-lang {
+   display: flex;
+}
+.header-top-lang__item {
+   display: block;
+   line-height: 19px;
+   color: #000;
+   font-size: 10px;
+   text-transform: uppercase;
+   font-family: "Bebas Neue";
+   letter-spacing: 1px;
+   margin: 0px 10px 0px 0px;
+   padding: 0px 4px; /* для отступа который закрасится темным */
+}
+
+.header-top-lang__item:hover {
+   color: #fff;
+   background-color: #000;
+}
+.header-top__link {
+   font-family: "Bebas Neue";
+font-size: 15px;
+line-height: 1.7;
+text-transform: uppercase;
+color: #000000;
+text-decoration: underline;
+}
+.header-top__link:hover {
+   text-decoration: underline;
+}
+.header-bottom {
+   display: flex;
+   align-items: center;  /* весь 2й этаж по центру  */
+   margin: -10px 0px 0px 0px;
+}
+.header-bottom__column {
+   flex: 0 1 33.333%;
+}
+.header-bottom-menu {
+}
+.header-bottom-menu-list {
+   display: flex;
+   justify-content: space-between;
+   
+}
+.header-bottom-menu__link {
+   font-family: "Bebas Neue";
+font-size: 15px;
+line-height: 1.7;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+color: #000000;
+}
+.header-bottom-menu__link:hover {
+   text-decoration: underline;
+}
+.header-logo {
+   display: flex;
+   flex-direction: column;
+   text-align: center;
+}
+.header-logo__text {
+   font-family: "Bebas Neue";
+font-size: 10px;
+line-height: 3.1;
+text-transform: uppercase;
+letter-spacing: 1.0em;
+color: #000000;
+}
+.header-logo__image {
+   display: inline-block; /*  тк картинка-ссылка */
+   margin: 13px 0px 22px 0px;
+}
+.header-logo__image1 {
+display: none;
+}
+/*=== АДАПТИВ header ============================*/
+@media (max-width: 800.98px) {
+   .header-bottom-menu__link {
+      margin: 0px 15px 0px 15px;
+   }
+  
+}
+/*=== БУРГЕР header ============================*/
+.close-icon-menu,
+.icon__menu {
+   display: none;
+}
+@media (max-width: 767.98px) {
+ 
+   .header-burger {
+      display: flex;
+   }
+  
+   .icon-menu {
+position: relative;
+flex: 0 0 30px;
+width: 30px;
+height: 18px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+left: 10px;
+top: 0;
+   }
+   .icon-menu::before,
+   .icon-menu::after{
+      content: '';
+      background-color: #000;
+      height: 2px;
+   }
+   .icon-menu span {
+background-color: #000;
+height: 2px;
+   }
+ 
+   .close-icon-menu{
+      position:   relative;
+flex: 0 0 30px;
+width: 30px;
+height: 30px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+left: 10px;
+top: 0;
+   }
+   .close-icon-menu::before,
+   .close-icon-menu::after{
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      background-color: #000;
+      height: 2px;
+   }
+   .close-icon-menu::before{
+transform: rotate(45deg);
+   }
+   .close-icon-menu::after{
+      transform: rotate(-45deg);
+   }
+   .header-top-lang {
+      position: absolute;
+      justify-content: start;
+      padding: 100px 0px 0px 10px;
+      z-index: 15;
+      left: -100%;
+      transition: left 0.4s ease 0s;
+   }
+   .header-bottom {
+      position: absolute;
+      background-color: #fff;
+      flex-direction: column;
+      left: -100%;
+      transition: left 0.4s ease 0s;
+      overflow: auto;
+      width: 100%;
+   }
+   .header-bottom-menu-list {
+      position: relative;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
+      z-index: 12;
+   }
+   .header-bottom-menu__link {
+      font-size: 24px;
+      padding: 0px 70px 0px 70px;
+   }
+
+   .close-icon-menu {
+      display: none;
+   }
+   .header:target .header-bottom {
+      left: 0;
+   }
+  .header-logo {
+      display: none;
+   }
+   .header-logo__image1 { /*для адаптива доп картинка
+      чтобы было лого с бургером*/
+position: relative;
+display: flex;
+margin: 0 auto;
+top: 0;
+max-width: 100%;
+padding: 20px 0px 10px 0px;
+   }
+   .header-top__link { /*отступ от лого*/
+      padding: 0px 20px 0px 20px;
+      font-size: 10px;
+   }
+   .header-top{
+padding: 0px 0px 30px 0px;
+   }
+   /* прокладка не работает из-за корявого позициониорвания
+   .header:target .header-bottom::before{
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100px;
+      width: 100%;
+      background-color: #fff;
+   } */
+   .header:target .header-top-lang {
+      left: 0;
+   }
+   .header:target .icon-menu {
+      display: none;
+   }
+ 
+
+   .header:target .close-icon-menu {
+      display: flex;
+   }
+   .header-top__link {
+      font-size: 22px;
+   }
+}
+/*====Main==Private-catering============================================*/
+.private-catering {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: #000;
+   width: 100%;
+}
+.private-catering__column {
+   flex: 0 0 50%;
+}
+/* не получилось
+.ibg{
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   position: relative;
+   }
+   
+   .ibg img{
+   max-width: 100%;
+   height: 435px;
+   position: absolute;
+   top: 0;
+   left: 0;
+visibility: visible;
+   } */
+   
+   .private-catering__image img { /*отзывчивая картинка*/
+      width: 100%;
+      height: 425px;
+      object-fit: cover;
+     
+   }
+
+.private-catering__content {
+   padding: 20px 0px 20px 62px;
+}
+.private-catering__title {
+   font-family: 'Bebas Neue';
+   font-size: 50px;
+line-height: 50px;
+text-transform: uppercase;
+letter-spacing: 5px;
+color: #ffffff;
+margin: 0px 0px 37px 0px;
+}
+.private-catering__text {
+   color: #fff;
+   margin: 0px 0px 55px 0px;
+   font-size: 15px;
+line-height: 1.5rem;
+padding: 0px 15px 0px 0px;
+}
+.private-catering__buttons {
+   display: inline-block;
+}
+.private-catering__button1 {
+}
+.btn {
+   font-family: 'Bebas Neue';
+font-size: 15px;
+height: 50px;
+text-transform: uppercase;
+line-height: 50px;
+color: #fff;
+padding: 17px 33px;
+border: 2px solid #000000;
+letter-spacing: 0.1em;
+background-color: #000;
+}
+.btn__white {
+   color: #000;
+   background-color: #fff;
+   border: 2px solid #fff;
+}
+.btn:hover {
+   color: #000;
+   background-color: #fff;
+   border: 2px solid #000;
+}
+.btn__white:hover {
+   color: #fff;
+   background-color: #000;
+   border: 2px solid #fff;
+}
+.link__white {
+   color: #fff;
+   display: inline-block;
+      font-family: 'Bebas Neue';
+      font-size: 15px;
+line-height: 25px;
+text-decoration: underline;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+margin: 0px 0px 0px 14px;
+}
+.private-catering__button2 {
+}
+/*=== АДАПТИВ Private-catering ============================*/
+@media (max-width: 800.98px) {
+   .private-catering__image img { /*отзывчивая картинка*/
+      height: 325px;
+   }
+   .private-catering__content {
+      padding: 0px 0px 0px 32px;
+   }
+      .private-catering__title {
+         font-size: 40px;
+      line-height: 40px;
+      margin: 0px 0px 17px 0px;
+      }
+      .private-catering__text {
+         color: #fff;
+         margin: 0px 0px 35px 0px;
+      }
+      .btn {
+      padding: 10px 23px;
+      }
+   }
+   @media (max-width: 575.98px) {
+      .private-catering__column:first-child {
+         display: none;
+      }
+      .private-catering__column {
+         flex: 1 1 100%;
+         left:  50%;
+
+      }
+      .private-catering__content {
+         padding: 20px 0px 20px 20px;
+      
+      }
+   }
+/*====Main==products-item====*/
+   .products__container {
+      padding: 75px 15px;
+   }
+   .products-body {
+      display: flex;
+      flex-wrap: wrap;
+      
+   }
+   .products__column {
+      flex: 0 0 25%;
+   }
+   .products-item { /*  чтобы не плясали кнопки от объема текста*/
+      display: flex;
+      flex-direction: column;
+height: 100%;
+   }
+   .products-item__image {
+      display: block; /*картинка была сслыкой*/
+      padding: 0px 0px 3% 0px;
+      margin: 0px 0px 25px 0px;
+   }
+   .products-item__image img {
+      width: 100%;
+      
+      object-fit: cover;
+   }
+   .products-item__title {
+      font-family: 'Bebas Neue';
+font-size: 25px;
+line-height: 25px;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+color: #000000;
+margin: 0px 0px 30px 0px;
+max-width: 185px;
+
+   }
+   .products-item__text {
+      flex: 1 1 auto; /*для любого объема текста*/
+      margin: 0px 0px 25px 0px;
+      font-size: 15px;
+line-height: 25px;
+max-width: 185px;
+padding: 0px 10px 0px 0px;
+   }
+   .products-item__buttons {
+      display: flex;
+      flex-direction: column;
+      display: inline-block;
+      align-items: center;
+   }
+   .link {
+      display: block;
+      font-family: 'Bebas Neue';
+      font-size: 15px;
+line-height: 25px;
+text-decoration: underline;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+color: #000000;
+margin: 29px 0px 0px 0px;
+   }
+   .link:hover {
+      font-size: 25px;
+   }
+   /*====АДАПТИВ======products-item================================*/
+   @media (max-width: 575.98px) {
+      .products__container {
+         padding: 40px 15px;
+      }
+      .products__column {
+         flex: 0 0 50%;
+      }
+      .link {
+         margin: 0px 0px 20px 0px;
+      }
+   }
+   @media (max-width: 380.98px) {
+      .products__container {
+         padding: 30px 15px 15px;
+      }
+      .products__column {
+         flex: 1 1 100%;
+      }
+      .products-item__title { /* убираем ограничение по ширине*/
+         max-width: none;
+         margin: 0px 0px 10px 0px;
+      }
+      .products-item__text  { /* убираем ограничение по ширине*/
+         max-width: none;
+      }
+   }
+/*====Main======why choose us============*/
+   .whychooseus {
+   }
+   .whychooseus-top {
+      display: flex;
+      background-color: #000;
+      align-items: center;
+     
+   }
+   .whychooseus-top__column {
+      flex: 0 0 50%;
+     
+   }
+   .whychooseus-top__text {
+      font-family: 'Bebas Neue';
+font-size: 50px;
+line-height: 25px;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+color: #ffffff;
+text-align: center;
+padding: 55px 0px;
+   }
+   .whychooseus-top__image {
+      
+   }
+   .whychooseus-top__image img {
+      width: 100%;
+      object-fit: cover;
+      height: 150px;
+   }
+   .whychooseus-bottom {
+      background-color: #ebebeb;
+      
+   }
+   .whychooseus__container {
+      padding: 50px 15px 0px 15px;
+      display: flex;
+      flex-wrap: wrap;
+   }
+   .whychooseus-body__column {
+      flex: 0 0 50%;
+   }
+   .whychooseus-body-item {
+     display: flex;
+     margin: 0px 0px 50px 0px;
+   
+   }
+   .whychooseus-body-item__icon {
+      width: 100px;
+      height: 100px;
+      margin: 0px 12px 0px 0px;
+
+   }
+   .whychooseus-body-item__body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+   }
+   .whychooseus-body-item__title {
+      font-family: 'Bebas Neue';
+font-size: 25px;
+line-height: 25px;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+   }
+   .whychooseus-body-item__text {
+font-size: 15px;
+line-height: 25px;
+padding-right: 15px;
+   }
+ /*====АДАПТИВ======whychooseus==================================*/
+ @media (max-width: 774.98px) {
+   .whychooseus-body__column {
+      flex: 1 1 100%;
+   }
+ }
+
+
+ @media (max-width: 700.98px) {
+.whychooseus-top__column:last-child {
+   display: none;
+}
+.whychooseus-top__column:first-child {
+   flex:  1 1 100%;
+}
+.whychooseus-body-item__title {
+   font-size: 22px;
+}
+   }
+   @media (max-width: 575.98px) {
+      .whychooseus-top__text {
+   font-size: 40px;
+   padding: 35px 0px;
+   }
+   .whychooseus-body-item__title {
+      font-size: 18px;
+   }
+   .whychooseus-body-item__text {
+      font-size: 16px;
+      line-height: 20px;
+   }
+}
+   @media (max-width: 380.98px) {
+      .whychooseus-top__text {
+         font-size: 30px;
+         padding: 25px 0px;
+         }
+         .whychooseus-body-item__text {
+            font-size: 14px;
+            line-height: 15px;
+         }
+   }
+ /*====main======contacts=========================================*/
+
+
+   .contacts {
+      padding: 82px 0px 0px 0px;
+   }
+   .contacts-top {
+   }
+   .container {
+   }
+   .contacts-body__title {
+      font-family: 'Bebas Neue';
+font-size: 50px;
+line-height: 25px;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+margin: 0px 0px 30px 0px;
+   }
+   .contacts-body {
+      display: flex;
+      flex-wrap: wrap;
+   }
+   .contacts-body__column {
+      flex: 0 0 50%;
+      padding: 0px 0px 20px 0px;
+   }
+
+   .contacts-body__item {
+      font-size: 15px;
+line-height: 25px;
+color: #000000;
+display: inline-block;
+padding: 0px 20px 0px 35px;
+   }
+   .adress {
+      background: url('../img/contacts_icon01.svg') left no-repeat;
+   }
+   .email {
+      background: url('../img/contacts_icon02.svg') left no-repeat;
+   }
+   
+   .tel {
+      background: url('../img/contacts_icon03.svg') left no-repeat;
+   }
+   
+   .contacts-social {
+      display: flex;
+   }
+   .contacts-social__item:not(:last-child) {
+      margin: 0px 20px 0px 0px;
+   }
+   .contacts-content {
+      display: flex;
+      flex-wrap: wrap;
+      background-color: #000;
+   }
+   .contacts-content__column {
+      flex: 0 0 50%;
+   }
+   .contacts-content__map iframe {
+   height: 450px;
+   width: 100%;
+   
+   }
+   .contacts-content-form {
+      padding: 28px 30px;
+   }
+   .contacts-content-form__title {
+font-family: 'Bebas Neue';
+font-size: 25px;
+line-height: 25px;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+color: #ffffff;
+margin: 0px 0px 28px 0px;
+   }
+   .contacts-content-form-body {
+     max-width: 375px;
+   }
+   .contacts-content-form-line {
+      margin: 0px 0px 25px 0px;
+   }
+   .input {
+      border: 2px solid #959595;
+      background-color: #252525;
+font-size: 15px;
+line-height: 25px;
+color: #959595;
+width: 100%;
+display: block;
+height: 50px; /*высота поля*/
+padding: 0px 18px; /*внутренний отступ*/
+   }
+   textarea.input {
+      height: 100px; /*высота поля*/
+      padding: 10px 18px; /*внутренний отступ*/
+      font-family: 'PT Sans';
+   }
+   .contacts-content-form-button {
+
+   }
+   .contacts-content-form__btn {
+      font-family: 'Bebas Neue';
+font-size: 15px;
+line-height: 25px;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+padding: 18px 26px;
+   }
+   .contacts-content-form__btn:hover {
+      background-color: #000;
+      color: #fff;
+      border: 2px solid #fff;
+   }
+    /*====АДАПТИВ======contacts==================================*/
+ @media (max-width: 774.98px) {
+   .contacts-content__column {
+      flex: 1 1 100%;
+   }
+   .contacts-content__map iframe {
+      height: 250px;
+ }
+}
+@media (max-width: 575.98px) {
+   .contacts {
+      padding: 40px 0px 0px 0px;
+   }
+   .contacts-body__column {
+flex: 1 1 100%;
+   }
+   .contacts-content-form-body {
+      max-width: none;
+    }
+}
+/*======== footer ============*/
+.footer__container {
+   padding: 55px 15px;
+}
+.footer-body {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+.footer-body__column {
+}
+.footer-body__copiraiting {
+font-size: 15px;
+line-height: 25px;
+font-weight: 400;
+color: #4d4d4d;}
+
+.footer-body__copiraiting a {
+   text-decoration: underline;
+   color: #4d4d4d;
+}
+
+/*====АДАПТИВ ==== footer ============*/
+@media (max-width: 575.98px) {
+   .footer-body {
+      flex-direction: column-reverse;
+   }
+.footer-logo img {
+   margin-bottom: 30px;
+}
+}
+@media (max-width: 575.98px) {
+   .footer-body__copiraiting {
+      text-align: center;
+   }
+}
